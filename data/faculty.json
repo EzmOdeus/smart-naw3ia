@@ -1,0 +1,24 @@
+[
+  {
+    "id": "1",
+    "name": "د. أحمد علي",
+    "department": "الرياضيات",
+    "email": "ahmed.ali@univ.edu.eg",
+    "phone": "01012345678",
+    "office": "مكتب 12",
+    "officeHours": "الأحد 10-12",
+    "courses": ["رياضيات 1", "إحصاء"],
+    "photo": "https://randomuser.me/api/portraits/men/1.jpg"
+  },
+  {
+    "id": "2",
+    "name": "د. سارة محمد",
+    "department": "الفيزياء",
+    "email": "sara.mohamed@univ.edu.eg",
+    "phone": "01087654321",
+    "office": "مكتب 8",
+    "officeHours": "الثلاثاء 11-1",
+    "courses": ["فيزياء عامة", "فيزياء تطبيقية"],
+    "photo": "https://randomuser.me/api/portraits/women/2.jpg"
+  }
+]
