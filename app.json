@@ -24,6 +24,12 @@
     },
     "android": {
       "package": "com.ezmodeus.fea"
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "b9e466d5-5f48-4d17-9f3c-11551194da63"
+      }
     }
   }
 }
