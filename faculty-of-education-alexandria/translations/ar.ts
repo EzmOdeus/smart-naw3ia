@@ -1,6 +1,8 @@
 export const ar = {
   common: {
     loading: 'جاري التحميل...',
+    send: 'إرسال',
+    all: 'الكل',
     error: 'حدث خطأ ما',
     retry: 'إعادة المحاولة',
     seeAll: 'عرض الكل',
@@ -153,6 +155,7 @@ export const ar = {
     officeHours: 'الساعات المكتبية',
     publications: 'المنشورات',
     courses: 'المقررات الدراسية',
+    staff: 'الهيئة الإدارية',
   },
   map: {
     title: 'خريطة الحرم الجامعي',
@@ -160,6 +163,9 @@ export const ar = {
     directions: 'الاتجاهات',
     buildings: 'المباني',
     facilities: 'المرافق',
+    all: 'الكل',
+    onlyMobile: 'الخريطة التفاعلية متاحة فقط على الأجهزة المحمولة.',
+    useList: 'يرجى استخدام قائمة المواقع أدناه.',
   },
   calendar: {
     title: 'التقويم الأكاديمي',
@@ -170,6 +176,9 @@ export const ar = {
     exams: 'الامتحانات',
     holidays: 'العطل',
     deadlines: 'المواعيد النهائية',
+    eventType: 'نوع الفعالية',
+    location: 'الموقع',
+    time: 'الوقت',
   },
   news: {
     title: 'الأخبار والإعلانات',
@@ -181,6 +190,7 @@ export const ar = {
     student: 'طلابية',
     readMore: 'قراءة المزيد',
     shareNews: 'مشاركة الخبر',
+    author: 'الكاتب',
   },
   about: {
     title: 'عن الكلية',

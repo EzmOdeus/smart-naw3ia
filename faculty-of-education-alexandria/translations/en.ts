@@ -1,6 +1,8 @@
 export const en = {
     common: {
       loading: 'Loading...',
+      send: 'Send',
+      all: 'All',
       error: 'Something went wrong',
       retry: 'Retry',
       seeAll: 'See All',
@@ -157,6 +159,7 @@ export const en = {
     officeHours: 'Office Hours',
     publications: 'Publications',
     courses: 'Courses',
+    staff: 'Staff',
   },
   map: {
     title: 'Campus Map',
@@ -164,6 +167,9 @@ export const en = {
     directions: 'Directions',
     buildings: 'Buildings',
     facilities: 'Facilities',
+    all: 'All',
+    onlyMobile: 'Interactive map is only available on mobile devices.',
+    useList: 'Please use the list of locations below.',
   },
   calendar: {
     title: 'Academic Calendar',
@@ -174,6 +180,9 @@ export const en = {
     exams: 'Exams',
     holidays: 'Holidays',
     deadlines: 'Deadlines',
+    eventType: 'Event Type',
+    location: 'Location',
+    time: 'Time',
   },
   news: {
     title: 'News & Announcements',
@@ -185,6 +194,7 @@ export const en = {
     student: 'Student',
     readMore: 'Read More',
     shareNews: 'Share News',
+    author: 'Author',
   },
   about: {
     title: 'about Faculty',
