@@ -1118,7 +1118,7 @@ export const departments: Department[] = [
     name: 'التربية الموسيقية',
     description:
       'يهدف القسم إلى إعداد معلمين متخصصين في التربية الموسيقية وتنمية المهارات الموسيقية لدى الطلاب.',
-    image: require('./../assets/images/images0.jpg'),
+    image: require('./../assets/images/download.jpg'),
     head: {
       id: 'ahmed-samir',
       name: 'ا.د. منال فراج',
@@ -1333,8 +1333,8 @@ export const departments: Department[] = [
     name: 'علوم تربوية و نفسية',
     description:
       'يهدف القسم إلى إعداد معلمين وباحثين في مجالات العلوم التربوية والنفسية، مع التركيز على تطوير مهارات البحث العلمي والتطبيقات التربوية.',
-    image:
-      'https://edusp.alexu.edu.eg/images/sections/educational-psychology.jpg',
+    image: require('./../assets/images/images0.jpg'),
+
     head: {
       id: 'fatma-abdelaziz',
       name: 'د. هاله ابو العلا',

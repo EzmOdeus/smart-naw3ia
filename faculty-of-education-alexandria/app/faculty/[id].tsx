@@ -49,10 +49,7 @@ export default function FacultyDetailScreen() {
         showsVerticalScrollIndicator={false}
       >
         <View style={styles.profileHeader}>
-          <Image
-            source={typeof member.image === 'string' && member.image ? { uri: member.image } : require('../../assets/images/download.jpg')}
-            style={styles.profileImage}
-          />
+          
           <View style={styles.profileInfo}>
             <Text variant="h4" color="primary.500">
               {member.name}

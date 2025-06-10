@@ -42,14 +42,6 @@ export default function FacultyScreen() {
   }) => (
     <Card style={styles.facultyCard} onPress={() => handleMemberPress(item.id)}>
       <View style={styles.facultyContent}>
-        <Image
-          source={{
-            uri: item.image
-              ? item.image
-              : require('./../../assets/images/light-yagami-ryuk-misa-amane-death-note-l-c4f2845291fb78e64513dc99de8f2a68.png'),
-          }}
-          style={styles.facultyImage}
-        />
         <View style={styles.facultyInfo}>
           <Text variant="subtitle" color="primary.500">
             {item.name}0
@@ -103,10 +95,7 @@ export default function FacultyScreen() {
             onPress={() => handleMemberPress(member.id)}
           >
             <View style={styles.facultyContent}>
-              <Image
-                source={typeof member.image === 'string' && member.image ? { uri: member.image } : require('../../assets/images/download.jpg')}
-                style={styles.facultyImage}
-              />
+             
               <View style={styles.facultyInfo}>
                 <Text variant="subtitle" color="primary.500">{member.name}</Text>
                 <Text variant="caption" color="gray.600">{member.department}</Text>
