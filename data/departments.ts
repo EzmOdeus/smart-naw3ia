@@ -676,7 +676,7 @@ export const departments: Department[] = [
     name: 'التربية الفنية',
     description:
       'بدأت الدراسة بهذا القسم اعتبارا من العام الجامعي 1988/1989م حيث التحق به 56 طالب وطالبة. يهدف القسم إلى إعداد معلم التربية الفنية مؤهل تربويا ومزود بقدر عالي من المعرفة العلمية والثقافية الخاصة بالفنون المختلفة والمدرب علميا على أسس فنية ومهارية.',
-    image: require('./../assets/images/images.jpg'),
+    image: './../assets/images/images.jpg',
     head: {
       id: 'sarah-ali',
       name: 'ا.د. نهبي الديب',
@@ -1073,7 +1073,7 @@ export const departments: Department[] = [
     name: 'التربية الموسيقية',
     description:
       'يهدف القسم إلى إعداد معلمين متخصصين في التربية الموسيقية وتنمية المهارات الموسيقية لدى الطلاب.',
-    image: require('./../assets/images/download.jpg'),
+    image: './../assets/images/download.jpg',
     head: {
       id: 'ahmed-samir',
       name: 'ا.د. منال فراج',

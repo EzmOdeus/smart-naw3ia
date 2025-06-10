@@ -1,15 +1,16 @@
-import React, { useState } from 'react';
-import { View, StyleSheet, ScrollView, Image, TouchableOpacity } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { useLocalSearchParams, Stack, useRouter } from 'expo-router';
-import { Colors } from '@/constants/Colors';
-import { Layout } from '@/constants/Layout';
+import { Button } from '@/components/ui/Button';
+import { Card } from '@/components/ui/Card';
 import { Header } from '@/components/ui/Header';
 import { Text } from '@/components/ui/Text';
-import { Card } from '@/components/ui/Card';
-import { Button } from '@/components/ui/Button';
-import { useTranslation } from '@/hooks/useTranslation';
+import { Colors } from '@/constants/Colors';
+import { Layout } from '@/constants/Layout';
 import { departments } from '@/data/departments';
+import { useTranslation } from '@/hooks/useTranslation';
+import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
+import React, { useState } from 'react';
+import { Image, ScrollView, StyleSheet, TouchableOpacity, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { ImageSourcePropType } from 'react-native/Libraries/Image/Image';
 
 export default function DepartmentDetailScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
@@ -46,20 +47,37 @@ export default function DepartmentDetailScreen() {
             <Text variant="body" color="gray.800" style={styles.sectionText}>
               {department.description}
             </Text>
-            
+
             <Text variant="h4" color="primary.500" style={styles.sectionTitle}>
               {t('departments.head')}
             </Text>
-            
+
             <Card style={styles.headCard}>
               <View style={styles.headProfile}>
-                <Image source={{ uri: department.head.image }} style={styles.headImage} />
+                <Image
+                  source={
+                    department.head.image
+                      ? (department.head.image as ImageSourcePropType)
+                      : require('@/assets/images/images.jpg')
+                  }
+                  style={styles.headImage}
+                />
                 <View style={styles.headInfo}>
-                  <Text variant="subtitle" color="primary.500">{department.head.name}</Text>
-                  <Text variant="caption" color="gray.600">{department.head.title}</Text>
-                  <Text variant="caption" color="gray.600">{department.head.specialization}</Text>
+                  <Text variant="subtitle" color="primary.500">
+                    {department.head.name}
+                  </Text>
+                  <Text variant="caption" color="gray.600">
+                    {department.head.title}
+                  </Text>
+                  <Text variant="caption" color="gray.600">
+                    {department.head.specialization}
+                  </Text>
                   <TouchableOpacity>
-                    <Text variant="caption" color="secondary.500" style={styles.email}>
+                    <Text
+                      variant="caption"
+                      color="secondary.500"
+                      style={styles.email}
+                    >
                       {department.head.email}
                     </Text>
                   </TouchableOpacity>
@@ -108,7 +126,7 @@ export default function DepartmentDetailScreen() {
                     <TouchableOpacity key={member.id} onPress={() => router.push(`/faculty/${member.id}`)}>
               <Card key={member.id} style={styles.facultyCard}>
                 <View style={styles.facultyProfile}>
-                  <Image source={{ uri: member.image }} style={styles.facultyImage} />
+                  {/* <Image source={ member.image } style={styles.facultyImage} /> */}
                   <View style={styles.facultyInfo}>
                       <Text variant="subtitle" color="primary.500" style={{fontWeight: 'bold'}}>
                         {member.name}
@@ -153,7 +171,10 @@ export default function DepartmentDetailScreen() {
           <View>
             {department.activities.map((activity) => (
               <Card key={activity.id} style={styles.activityCard}>
-                <Image source={{ uri: activity.image }} style={styles.activityImage} />
+                <Image
+                  source={typeof activity.image === 'string' && activity.image ? { uri: activity.image } : require('../../assets/images/download.jpg')}
+                  style={styles.activityImage}
+                />
                 <View style={styles.activityContent}>
                   <Text variant="subtitle" color="primary.500">{activity.title}</Text>
                   <Text variant="caption" color="gray.500" style={styles.activityDate}>
@@ -182,7 +203,10 @@ export default function DepartmentDetailScreen() {
         showBackButton
       />
       
-      <Image source={{ uri: department.image }} style={styles.heroImage} />
+      <Image
+        source={typeof department.image === 'string' && department.image ? { uri: department.image } : require('../../assets/images/download.jpg')}
+        style={styles.heroImage}
+      />
       
       <View style={styles.tabsContainer}>
         <ScrollView

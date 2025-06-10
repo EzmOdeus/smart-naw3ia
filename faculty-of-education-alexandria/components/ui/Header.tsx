@@ -7,6 +7,7 @@ import { Text } from './Text';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import AntDesign from '@expo/vector-icons/AntDesign';
 import Entypo from '@expo/vector-icons/Entypo';
+import { LanguageSwitch } from './LanguageSwitch';
 interface HeaderProps {
   title?: string;
   showBackButton?: boolean;
@@ -15,10 +16,12 @@ interface HeaderProps {
   onMenuPress?: () => void;
   transparent?: boolean;
   rightContent?: React.ReactNode;
+  onLanguageChange?: () => void;
 }
 
 export function Header({
-  title,
+  onLanguageChange,
+  title = 'smart naw3ia',
   showBackButton = false,
   showSearch = false,
   onSearchPress,
@@ -73,7 +76,6 @@ export function Header({
         <View style={styles.rightContainer}>
           {showSearch && (
             <TouchableOpacity onPress={onSearchPress} style={styles.iconButton}>
-             
               <AntDesign
                 name="search1"
                 size={24}
@@ -81,6 +83,7 @@ export function Header({
               />
             </TouchableOpacity>
           )}
+          <LanguageSwitch onLanguageChange={onLanguageChange} />
           {rightContent}
         </View>
       </View>
@@ -126,7 +129,7 @@ const styles = StyleSheet.create({
   },
   titleContainer: {
     flex: 2,
-    alignItems: 'center',
+    alignItems: 'flex-start',
   },
   rightContainer: {
     flex: 1,

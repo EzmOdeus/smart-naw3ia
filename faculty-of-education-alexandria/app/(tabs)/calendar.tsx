@@ -1,5 +1,11 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, FlatList, TouchableOpacity } from 'react-native';
+import {
+  View,
+  StyleSheet,
+  FlatList,
+  TouchableOpacity,
+  ScrollView,
+} from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Colors } from '@/constants/Colors';
 import { Layout } from '@/constants/Layout';
@@ -10,6 +16,7 @@ import { useTranslation } from '@/hooks/useTranslation';
 import { events, Event } from '@/data/events';
 import Entypo from '@expo/vector-icons/Entypo';
 import AntDesign from '@expo/vector-icons/AntDesign';
+
 export default function CalendarScreen() {
   const { t } = useTranslation();
   const [selectedDate, setSelectedDate] = useState<string | null>(null);
@@ -235,8 +242,6 @@ export default function CalendarScreen() {
     </SafeAreaView>
   );
 }
-
-import { ScrollView } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {

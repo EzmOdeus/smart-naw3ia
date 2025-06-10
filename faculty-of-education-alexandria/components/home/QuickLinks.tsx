@@ -115,6 +115,7 @@ const styles = StyleSheet.create({
   container: {
     marginVertical: Layout.spacing.l,
     paddingHorizontal: Layout.spacing.m,
+    alignItems:'center'
   },
   title: {
     marginBottom: Layout.spacing.m,

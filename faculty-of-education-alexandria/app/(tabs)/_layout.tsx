@@ -1,10 +1,10 @@
-import React from 'react';
-import { Tabs } from 'expo-router';
-import {  Platform } from 'react-native';
-import { useTranslation } from '@/hooks/useTranslation';
 import { Colors } from '@/constants/Colors';
+import { useTranslation } from '@/hooks/useTranslation';
 import AntDesign from '@expo/vector-icons/AntDesign';
 import Entypo from '@expo/vector-icons/Entypo';
+import { Tabs } from 'expo-router';
+import React from 'react';
+import { Platform } from 'react-native';
 export default function TabLayout() {
   const { t } = useTranslation();
 
@@ -69,15 +69,7 @@ export default function TabLayout() {
           ),
         }}
       />
-      <Tabs.Screen
-        name="ChatbotModal"
-        options={{
-          title: t('tabs.Ai'),
-          tabBarIcon: ({ color, size }) => (
-            <AntDesign name="API" size={size} color={color} />
-          ),
-        }}
-      />
+
     </Tabs>
   );
 }

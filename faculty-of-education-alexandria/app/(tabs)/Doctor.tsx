@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, FlatList, Image } from 'react-native';
+import { View, StyleSheet, FlatList } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { router } from 'expo-router';
 import { Colors } from '@/constants/Colors';
@@ -19,7 +19,7 @@ const groupedFaculty = facultyMembers.reduce((groups, member) => {
   return groups;
 }, {} as Record<string, typeof facultyMembers>);
 
-export default function FacultyScreen() {
+export default function Doctor() {
   const { t } = useTranslation();
   const [searchQuery, setSearchQuery] = useState('');
   
@@ -42,7 +42,6 @@ export default function FacultyScreen() {
   }) => (
     <Card style={styles.facultyCard} onPress={() => handleMemberPress(item.id)}>
       <View style={styles.facultyContent}>
-        <Image source={require("./../../assets/images/pharmacist-work.jpg") } style={styles.facultyImage} />
         <View style={styles.facultyInfo}>
           <Text variant="subtitle" color="primary.500">
             {item.name}
@@ -96,18 +95,9 @@ export default function FacultyScreen() {
             onPress={() => handleMemberPress(member.id)}
           >
             <View style={styles.facultyContent}>
-              <Image
-                source={
-                  member.image
-                    ? member.image
-                    : require('./../../assets/images/light-yagami-ryuk-misa-amane-death-note-l-c4f2845291fb78e64513dc99de8f2a68.png')
-                }
-                style={styles.facultyImage}
-                loadingIndicatorSource={require('./../../assets/images/light-yagami-ryuk-misa-amane-death-note-l-c4f2845291fb78e64513dc99de8f2a68.png')}
-              />
               <View style={styles.facultyInfo}>
                 <Text variant="subtitle" color="primary.500">
-                  {member.name}2
+                  {member.name}
                 </Text>
                 <Text variant="caption" color="gray.600">
                   {member.department}
@@ -191,6 +181,7 @@ const styles = StyleSheet.create({
   },
   facultyCard: {
     marginBottom: Layout.spacing.m,
+    
   },
   facultyContent: {
     flexDirection: 'row',
@@ -204,6 +195,7 @@ const styles = StyleSheet.create({
     flex: 1,
     marginLeft: Layout.spacing.m,
     justifyContent: 'center',
+fontWeight:'bold'
   },
   specialization: {
     marginTop: Layout.spacing.xs,

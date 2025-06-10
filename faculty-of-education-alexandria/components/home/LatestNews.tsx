@@ -1,12 +1,12 @@
-import React from 'react';
-import { View, StyleSheet, FlatList, Image, TouchableOpacity } from 'react-native';
 import { router } from 'expo-router';
+import React from 'react';
+import { FlatList, Image, StyleSheet, TouchableOpacity, View } from 'react-native';
 import { Colors } from '../../constants/Colors';
 import { Layout } from '../../constants/Layout';
-import { Text } from '../ui/Text';
-import { Card } from '../ui/Card';
-import { useTranslation } from '../../hooks/useTranslation';
 import { NewsItem } from '../../data/news';
+import { useTranslation } from '../../hooks/useTranslation';
+import { Card } from '../ui/Card';
+import { Text } from '../ui/Text';
 
 interface LatestNewsProps {
   news: NewsItem[];
@@ -28,7 +28,10 @@ export function LatestNews({ news }: LatestNewsProps) {
       style={styles.newsCard}
       onPress={() => handlePressNews(item.id)}
     >
-      <Image source={{ uri: item.image }} style={styles.newsImage} />
+      <Image
+        source={typeof item.image === 'string' && item.image ? { uri: item.image } : require('../../assets/images/download.jpg')}
+        style={styles.newsImage}
+      />
       <View style={styles.newsInfo}>
         <View style={styles.categoryContainer}>
           <Text style={[styles.category, styles[`category_${item.category}`]]}>

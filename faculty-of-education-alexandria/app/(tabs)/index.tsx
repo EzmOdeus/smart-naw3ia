@@ -1,23 +1,23 @@
-import React, { useState, useEffect } from 'react';
-import { StyleSheet, View, Platform, FlatList, TouchableOpacity } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { Colors } from '@/constants/Colors';
-import { Layout } from '@/constants/Layout';
+import { FeaturedDepartments } from '@/components/home/FeaturedDepartments';
+import { Hero } from '@/components/home/Hero';
+import { LatestNews } from '@/components/home/LatestNews';
+import { QuickLinks } from '@/components/home/QuickLinks';
 import { Header } from '@/components/ui/Header';
 import { LanguageSwitch } from '@/components/ui/LanguageSwitch';
 import { SearchBar } from '@/components/ui/SearchBar';
-import { useTranslation } from '@/hooks/useTranslation';
-import { Hero } from '@/components/home/Hero';
-import { FeaturedDepartments } from '@/components/home/FeaturedDepartments';
-import { LatestNews } from '@/components/home/LatestNews';
-import { QuickLinks } from '@/components/home/QuickLinks';
-import { departments, Department } from '@/data/departments';
-import { news, NewsItem } from '@/data/news';
-import {  useRouter } from 'expo-router';
 import { Text } from '@/components/ui/Text';
+import { Colors } from '@/constants/Colors';
+import { Layout } from '@/constants/Layout';
+import { Department, departments } from '@/data/departments';
 import { facultyMembers, FullFacultyMember } from '@/data/faculty';
+import { news, NewsItem } from '@/data/news';
+import { useTranslation } from '@/hooks/useTranslation';
 import { Cairo_400Regular } from '@expo-google-fonts/cairo';
-import ChatbotModal from '../ChatbotModal';
+import { useRouter } from 'expo-router';
+import React, { useEffect, useState } from 'react';
+import { FlatList, Platform, StyleSheet, TouchableOpacity, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import ChatbotModal from '../../components/ChatbotModal';
 
 const GEMINI_API_KEY = 'AIzaSyCWaKLjvd_8ZWt3dgnGXggnxk-WkqTQMso';
 if (!GEMINI_API_KEY) {
@@ -31,7 +31,7 @@ export default  function HomeScreen({ onLanguageChange }: { onLanguageChange?: (
 
   const { t } = useTranslation();
   const router = useRouter();
-  const [searchText, setSearchText] = useState('');
+  const [, setSearchText] = useState('');
   const [suggestions, setSuggestions] = useState<{
     departments: Department[];
     news: NewsItem[];
@@ -39,9 +39,15 @@ export default  function HomeScreen({ onLanguageChange }: { onLanguageChange?: (
   }>({ departments: [], news: [], faculty: [] });
   const [highlightedIndex, setHighlightedIndex] = useState<number>(-1);
   const suggestionsList = [
-    ...suggestions.departments.map(dep => ({ type: 'department', value: dep })),
-    ...suggestions.news.map(item => ({ type: 'news', value: item })),
-    ...suggestions.faculty.map(member => ({ type: 'faculty', value: member })),
+    ...suggestions.departments.map((dep) => ({
+      type: 'department',
+      value: dep,
+    })),
+    ...suggestions.news.map((item) => ({ type: 'news', value: item })),
+    ...suggestions.faculty.map((member) => ({
+      type: 'faculty',
+      value: member,
+    })),
   ];
 
   const handleSearch = (text: string) => {
@@ -51,34 +57,29 @@ export default  function HomeScreen({ onLanguageChange }: { onLanguageChange?: (
       return;
     }
     // Filter departments
-    const filteredDepartments = departments.filter(dep =>
-      dep.name.toLowerCase().includes(text.toLowerCase()) ||
-      dep.description.toLowerCase().includes(text.toLowerCase())
+    const filteredDepartments = departments.filter(
+      (dep) =>
+        dep.name.toLowerCase().includes(text.toLowerCase()) ||
+        dep.description.toLowerCase().includes(text.toLowerCase())
     );
     // Filter news
-    const filteredNews = news.filter(item =>
-      item.title.toLowerCase().includes(text.toLowerCase()) ||
-      item.summary.toLowerCase().includes(text.toLowerCase())
+    const filteredNews = news.filter(
+      (item) =>
+        item.title.toLowerCase().includes(text.toLowerCase()) ||
+        item.summary.toLowerCase().includes(text.toLowerCase())
     );
     // Filter faculty
-    const filteredFaculty = facultyMembers.filter(member =>
-      member.name.toLowerCase().includes(text.toLowerCase()) ||
-      member.specialization.toLowerCase().includes(text.toLowerCase()) ||
-      member.department.toLowerCase().includes(text.toLowerCase())
+    const filteredFaculty = facultyMembers.filter(
+      (member) =>
+        member.name.toLowerCase().includes(text.toLowerCase()) ||
+        member.specialization.toLowerCase().includes(text.toLowerCase()) ||
+        member.department.toLowerCase().includes(text.toLowerCase())
     );
-    setSuggestions({ departments: filteredDepartments, news: filteredNews, faculty: filteredFaculty });
-  };
-
-  const handleDepartmentPress = (dep: Department) => {
-    setSearchText(dep.name);
-    setSuggestions({ departments: [], news: [], faculty: [] });
-    router.push(`/departments/${dep.id}`);
-  };
-
-  const handleNewsPress = (item: NewsItem) => {
-    setSearchText(item.title);
-    setSuggestions({ departments: [], news: [], faculty: [] });
-    router.push(`/news/${item.id}`);
+    setSuggestions({
+      departments: filteredDepartments,
+      news: filteredNews,
+      faculty: filteredFaculty,
+    });
   };
 
   const handleFacultyPress = (member: FullFacultyMember) => {
@@ -91,18 +92,15 @@ export default  function HomeScreen({ onLanguageChange }: { onLanguageChange?: (
   const handleKeyDown = (e: any) => {
     if (suggestionsList.length === 0) return;
     if (e.key === 'ArrowDown') {
-      setHighlightedIndex(i => Math.min(i + 1, suggestionsList.length - 1));
+      setHighlightedIndex((i) => Math.min(i + 1, suggestionsList.length - 1));
       e.preventDefault();
     } else if (e.key === 'ArrowUp') {
-      setHighlightedIndex(i => Math.max(i - 1, 0));
+      setHighlightedIndex((i) => Math.max(i - 1, 0));
       e.preventDefault();
     } else if (e.key === 'Enter' && highlightedIndex >= 0) {
       const item = suggestionsList[highlightedIndex];
-      if (item.type === 'department') {
-        handleDepartmentPress(item.value as Department);
-      } else if (item.type === 'news') {
-        handleNewsPress(item.value as NewsItem);
-      } else if (item.type === 'faculty') {
+
+      if (item.type === 'faculty') {
         handleFacultyPress(item.value as FullFacultyMember);
       }
       e.preventDefault();
@@ -112,14 +110,17 @@ export default  function HomeScreen({ onLanguageChange }: { onLanguageChange?: (
   // Reset highlight when suggestions change
   useEffect(() => {
     setHighlightedIndex(suggestionsList.length > 0 ? 0 : -1);
-  }, [suggestions.departments, suggestions.news, suggestions.faculty]);
+  }, [
+    suggestions.departments,
+    suggestions.news,
+    suggestions.faculty,
+    suggestionsList.length,
+  ]);
 
   return (
-    <View style={styles.container} >
+    <View style={styles.container}>
       <SafeAreaView edges={['right', 'left']} style={styles.header}>
-        <Header
-          rightContent={<LanguageSwitch onLanguageChange={onLanguageChange} />}
-        />
+        <Header/>
       </SafeAreaView>
       <FlatList
         data={[1]}
@@ -133,12 +134,14 @@ export default  function HomeScreen({ onLanguageChange }: { onLanguageChange?: (
                 onSearch={handleSearch}
                 onKeyDown={Platform.OS === 'web' ? handleKeyDown : undefined}
               />
-              {suggestions.departments.length > 0 || suggestions.news.length > 0 || suggestions.faculty.length > 0 ? (
+              {suggestions.departments.length > 0 ||
+              suggestions.news.length > 0 ||
+              suggestions.faculty.length > 0 ? (
                 <View style={styles.suggestionsContainer}>
-                  {suggestions.departments.length > 0 && (
+                  {/* {suggestions.departments.length > 0 && (
                     <Text variant="subtitle" style={styles.suggestionHeader}>{t('departments.title')}</Text>
-                  )}
-                  {suggestions.departments.map((dep, i) => (
+                  )} */}
+                  {/* {suggestions.departments.map((dep, i) => (
                     <Text
                       key={dep.id}
                       variant="body"
@@ -166,9 +169,11 @@ export default  function HomeScreen({ onLanguageChange }: { onLanguageChange?: (
                     >
                       {item.title}
                     </Text>
-                  ))}
+                  ))} */}
                   {suggestions.faculty.length > 0 && (
-                    <Text variant="subtitle" style={styles.suggestionHeader}>{t('faculty.title')}</Text>
+                    <Text variant="subtitle" style={styles.suggestionHeader}>
+                      {t('faculty.title')}
+                    </Text>
                   )}
                   {suggestions.faculty.map((member, i) => (
                     <Text
@@ -176,7 +181,11 @@ export default  function HomeScreen({ onLanguageChange }: { onLanguageChange?: (
                       variant="body"
                       style={[
                         styles.suggestionItem,
-                        highlightedIndex === suggestionsList.findIndex(s => s.type === 'faculty' && s.value.id === member.id) && styles.suggestionItemHighlighted
+                        highlightedIndex ===
+                          suggestionsList.findIndex(
+                            (s) =>
+                              s.type === 'faculty' && s.value.id === member.id
+                          ) && styles.suggestionItemHighlighted,
                       ]}
                       onPress={() => handleFacultyPress(member)}
                     >
@@ -215,7 +224,7 @@ export default  function HomeScreen({ onLanguageChange }: { onLanguageChange?: (
         visible={modalVisible}
         onClose={() => setModalVisible(false)}
       />
-      </View>
+    </View>
   );
 }
 

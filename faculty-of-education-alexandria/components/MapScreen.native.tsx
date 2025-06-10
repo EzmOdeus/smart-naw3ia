@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
-import { View, StyleSheet, Dimensions, TouchableOpacity } from 'react-native';
+import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps';
+import { View, StyleSheet, Dimensions, TouchableOpacity, ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Colors } from '@/constants/Colors';
 import { Layout } from '@/constants/Layout';
@@ -11,12 +12,11 @@ import { useTranslation } from '@/hooks/useTranslation';
 import { mapMarkers, MapMarker } from '@/data/mapMarkers';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import Feather from '@expo/vector-icons/Feather';
+
 const { width, height } = Dimensions.get('window');
 const ASPECT_RATIO = width / height;
 const LATITUDE_DELTA = 0.005;
 const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
-
-import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps';
 
 export default function MapScreen() {
   const { t } = useTranslation();
@@ -78,7 +78,7 @@ export default function MapScreen() {
           defaultValue={searchQuery}
         />
       </View>
-
+<ScrollView  showsVerticalScrollIndicator={false}>
       <View style={styles.filtersContainer}>
         <TouchableOpacity
           style={[
@@ -233,6 +233,7 @@ export default function MapScreen() {
           </TouchableOpacity>
         ))}
       </View>
+      </ScrollView>
     </SafeAreaView>
   );
 }

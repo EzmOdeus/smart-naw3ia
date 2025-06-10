@@ -15,12 +15,7 @@ export function LanguageSwitch({ onLanguageChange }: { onLanguageChange?: () => 
 
   return (
     <View style={styles.felx}>
-      <Image
-        source={require('./../../assets/images/icon.png')}
-        width={10}
-        height={20}
-        style={styles.img}
-      />
+    
 
       <View style={styles.container}>
         <TouchableOpacity

@@ -13,41 +13,45 @@ export const mapMarkers: MapMarker[] = [
   {
     id: 'building1',
     title: 'المبنى الرئيسي',
-    description: 'المبنى الإداري الرئيسي ويضم مكتب العميد، شؤون الطلاب، وقاعات المحاضرات الرئيسية.',
+    description:
+      'المبنى الإداري الرئيسي ويضم مكتب العميد، شؤون الطلاب، وقاعات المحاضرات الرئيسية.',
     category: 'building',
     coordinate: {
-      latitude: 31.208845,
-      longitude: 29.909223,
+      latitude: 31.222369934660955,
+      longitude: 29.947120790990667,
     },
   },
   {
     id: 'building2',
     title: 'مبنى قسم التربية الفنية',
-    description: 'يضم قسم التربية الفنية، الاستوديوهات، قاعات العرض، والفصول المتخصصة.',
+    description:
+      'يضم قسم التربية الفنية، الاستوديوهات، قاعات العرض، والفصول المتخصصة.',
     category: 'building',
     coordinate: {
-      latitude: 31.209122,
-      longitude: 29.908897,
+      latitude: 31.222369934660955,
+      longitude: 29.947120790990667,
     },
   },
   {
     id: 'building3',
     title: 'مبنى قسم التربية الموسيقية',
-    description: 'يضم قسم التربية الموسيقية، غرف التدريب، وقاعات العروض الموسيقية.',
+    description:
+      'يضم قسم التربية الموسيقية، غرف التدريب، وقاعات العروض الموسيقية.',
     category: 'building',
     coordinate: {
-      latitude: 31.208612,
-      longitude: 29.908992,
+      latitude: 31.216002245895258,
+      longitude: 29.9753309710477,
     },
   },
   {
     id: 'building4',
     title: 'مبنى الاقتصاد المنزلي',
-    description: 'يضم معامل الاقتصاد المنزلي، المطابخ، معامل النسيج، والفصول الدراسية.',
+    description:
+      'يضم معامل الاقتصاد المنزلي، المطابخ، معامل النسيج، والفصول الدراسية.',
     category: 'building',
     coordinate: {
-      latitude: 31.208432,
-      longitude: 29.909392,
+      latitude: 31.216002245895258,
+      longitude: 29.9753309710477,
     },
   },
   {
@@ -56,19 +60,19 @@ export const mapMarkers: MapMarker[] = [
     description: 'يضم معامل التكنولوجيا.',
     category: 'building',
     coordinate: {
-      latitude: 31.209003,
-      longitude: 29.909587,
+      latitude: 31.21583249880553,
+      longitude: 29.975888870506175,
     },
   },
- 
+
   {
     id: 'facility2',
     title: 'شئون الطلاب',
     description: 'مرافق وخدمات طلابية .',
     category: 'facility',
     coordinate: {
-      latitude: 31.208922,
-      longitude: 29.909345,
+      latitude: 31.222369934660955,
+      longitude: 29.947120790990667,
     },
   },
   {
@@ -77,10 +81,8 @@ export const mapMarkers: MapMarker[] = [
     description: 'المكان الرئيسي لعقد المؤتمرات والندوات والفعاليات الكبرى.',
     category: 'facility',
     coordinate: {
-      latitude: 31.208501,
-      longitude: 29.909201,
+      latitude: 31.222369934660955,
+      longitude: 29.947120790990667,
     },
   },
-
-  
 ];

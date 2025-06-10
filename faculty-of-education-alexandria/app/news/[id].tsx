@@ -1,16 +1,16 @@
-import React from 'react';
-import { View, StyleSheet, ScrollView, Image, Share, Platform } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { useLocalSearchParams, Stack } from 'expo-router';
-import { Colors } from '@/constants/Colors';
-import { Layout } from '@/constants/Layout';
+import { Button } from '@/components/ui/Button';
 import { Header } from '@/components/ui/Header';
 import { Text } from '@/components/ui/Text';
-import { Button } from '@/components/ui/Button';
-import { useTranslation } from '@/hooks/useTranslation';
+import { Colors } from '@/constants/Colors';
+import { Layout } from '@/constants/Layout';
 import { news } from '@/data/news';
-import Entypo from '@expo/vector-icons/Entypo';
+import { useTranslation } from '@/hooks/useTranslation';
 import AntDesign from '@expo/vector-icons/AntDesign';
+import Entypo from '@expo/vector-icons/Entypo';
+import { Stack, useLocalSearchParams } from 'expo-router';
+import React from 'react';
+import { Image, Platform, ScrollView, Share, StyleSheet, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 export default function NewsDetailScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const { t } = useTranslation();
@@ -20,7 +20,7 @@ export default function NewsDetailScreen() {
   if (!newsItem) {
     return (
       <SafeAreaView style={styles.container}>
-        <Header title={t('news.title')} showBackButton />
+        <Header title={t('news.title')} showBackButton  />
         <View style={styles.errorContainer}>
           <Text>News item not found</Text>
         </View>
@@ -52,11 +52,18 @@ export default function NewsDetailScreen() {
     <SafeAreaView style={styles.container} edges={['right', 'left', 'bottom']}>
       <Stack.Screen options={{ title: newsItem.title }} />
 
-      <Header title="" showBackButton transparent />
+      <Header title={t('tabs.news')} showBackButton />
 
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.imageContainer}>
-          <Image source={{ uri: newsItem.image }} style={styles.heroImage} />
+          <Image
+            source={
+              typeof newsItem.image === 'string' && newsItem.image
+                ? { uri: newsItem.image }
+                : require('../../assets/images/download.jpg')
+            }
+            style={styles.heroImage}
+          />
           <View style={styles.overlay} />
         </View>
 
@@ -109,7 +116,9 @@ export default function NewsDetailScreen() {
           <View style={styles.shareContainer}>
             <Button
               variant="outline"
-              leftIcon={<Entypo name="share" size={18} color={Colors.primary[500]}/>}
+              leftIcon={
+                <Entypo name="share" size={18} color={Colors.primary[500]} />
+              }
               onPress={handleShare}
             >
               {t('news.shareNews')}

@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "faculty-of-education-alexandria",
-    "slug": "faculty-of-education-alexandria",
+    "name": "faculty-of-Specific-education-alexandria",
+    "slug": "faculty-of-Specific-education-alexandria",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -16,7 +16,8 @@
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "edgeToEdgeEnabled": true
+      "edgeToEdgeEnabled": true,
+      "package": "com.ezmodeus.facultyofSpecificeducationalexandria"
     },
     "web": {
       "bundler": "metro",
@@ -37,6 +38,12 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "c967f3bb-70cf-476d-89ed-a387683ebd35"
+      }
     }
   }
 }

@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
-import { View, StyleSheet, FlatList, Image, TouchableOpacity } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { router } from 'expo-router';
-import { Colors } from '@/constants/Colors';
-import { Layout } from '@/constants/Layout';
+import { Card } from '@/components/ui/Card';
 import { Header } from '@/components/ui/Header';
 import { SearchBar } from '@/components/ui/SearchBar';
 import { Text } from '@/components/ui/Text';
-import { Card } from '@/components/ui/Card';
-import { useTranslation } from '@/hooks/useTranslation';
+import { Colors } from '@/constants/Colors';
+import { Layout } from '@/constants/Layout';
 import { news, NewsItem } from '@/data/news';
+import { useTranslation } from '@/hooks/useTranslation';
+import { router } from 'expo-router';
+import React, { useState } from 'react';
+import { FlatList, Image, ScrollView, StyleSheet, TouchableOpacity, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function NewsScreen() {
   const { t } = useTranslation();
@@ -48,7 +48,10 @@ export default function NewsScreen() {
       style={styles.newsCard}
       onPress={() => handleNewsPress(item.id)}
     >
-      <Image source={{ uri: item.image }} style={styles.newsImage} />
+      <Image
+        source={typeof item.image === 'string' && item.image ? { uri: item.image } : require('../../assets/images/download.jpg')}
+        style={styles.newsImage}
+      />
       <View style={styles.newsContent}>
         <View style={styles.newsHeader}>
           <View style={[
@@ -148,7 +151,7 @@ export default function NewsScreen() {
               variant="caption"
               color={activeCategory === 'event' ? 'white' : 'secondary.700'}
             >
-              {t('news.events')}
+              {t('news.event')}
             </Text>
           </TouchableOpacity>
           
@@ -197,7 +200,6 @@ export default function NewsScreen() {
   );
 }
 
-import { ScrollView } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {

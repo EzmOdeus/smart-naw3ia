@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import { View, StyleSheet, FlatList, Image } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { router } from 'expo-router';
@@ -10,6 +10,7 @@ import { Card } from '@/components/ui/Card';
 import { Text } from '@/components/ui/Text';
 import { useTranslation } from '@/hooks/useTranslation';
 import { facultyMembers } from '@/data/faculty';
+import React = require('react');
 
 const groupedFaculty = facultyMembers.reduce((groups, member) => {
   const title = member.title;

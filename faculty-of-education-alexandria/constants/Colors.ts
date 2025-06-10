@@ -1,4 +1,21 @@
 export const Colors = {
+
+    light: {
+      text: '#000',
+      background: '#fff',
+      tint: '#1e40af', // أزرق جامعي
+      tabIconDefault: '#ccc',
+      tabIconSelected: '#1e40af',
+    },
+    dark: {
+      text: '#fff',
+      background: '#121212',
+      tint: '#60a5fa',
+      tabIconDefault: '#888',
+      tabIconSelected: '#60a5fa',
+    },
+
+  
   primary: {
     50: '#E6EEF4',
     100: '#CCDDE9',

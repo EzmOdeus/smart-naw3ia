@@ -1,17 +1,17 @@
-import React from 'react';
-import { View, StyleSheet, ScrollView, Image, Linking } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { useLocalSearchParams, Stack } from 'expo-router';
-import { Colors } from '@/constants/Colors';
-import { Layout } from '@/constants/Layout';
+import { Button } from '@/components/ui/Button';
+import { Card } from '@/components/ui/Card';
 import { Header } from '@/components/ui/Header';
 import { Text } from '@/components/ui/Text';
-import { Card } from '@/components/ui/Card';
-import { Button } from '@/components/ui/Button';
-import { useTranslation } from '@/hooks/useTranslation';
+import { Colors } from '@/constants/Colors';
+import { Layout } from '@/constants/Layout';
 import { facultyMembers } from '@/data/faculty';
-import Feather from '@expo/vector-icons/Feather';
+import { useTranslation } from '@/hooks/useTranslation';
 import AntDesign from '@expo/vector-icons/AntDesign';
+import Feather from '@expo/vector-icons/Feather';
+import { Stack, useLocalSearchParams } from 'expo-router';
+import React from 'react';
+import { Image, Linking, ScrollView, StyleSheet, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 export default function FacultyDetailScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const { t } = useTranslation();
@@ -49,7 +49,10 @@ export default function FacultyDetailScreen() {
         showsVerticalScrollIndicator={false}
       >
         <View style={styles.profileHeader}>
-          <Image source={{ uri: member.image }} style={styles.profileImage} />
+          <Image
+            source={typeof member.image === 'string' && member.image ? { uri: member.image } : require('../../assets/images/download.jpg')}
+            style={styles.profileImage}
+          />
           <View style={styles.profileInfo}>
             <Text variant="h4" color="primary.500">
               {member.name}

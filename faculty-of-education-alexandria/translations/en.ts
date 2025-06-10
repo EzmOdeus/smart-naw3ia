@@ -1,17 +1,116 @@
 export const en = {
-  common: {
-    loading: 'Loading...',
-    error: 'Something went wrong',
-    retry: 'Retry',
-    seeAll: 'See All',
-    search: 'Search',
-    noResults: 'No results found',
-    cancel: 'Cancel',
-    confirm: 'Confirm',
-    back: 'Back',
-    next: 'Next',
-    done: 'Done',
-    about: 'About',
+    common: {
+      loading: 'Loading...',
+      error: 'Something went wrong',
+      retry: 'Retry',
+      seeAll: 'See All',
+      search: 'Search',
+      noResults: 'No results found',
+      cancel: 'Cancel',
+      confirm: 'Confirm',
+      back: 'Back',
+      next: 'Next',
+      done: 'Done',
+      about: {
+        goals_title: 'Goals',
+        goals_items: [
+          'Graduate professionally and technically qualified teachers.',
+          'Develop academic programs to meet labor market requirements.',
+          'Encourage scientific research in the fields of specific education.',
+          'Serve the community and develop the environment.',
+          'Promote ethical values and national belonging among students.',
+        ],
+        values: {
+          title: 'Values',
+          items: [
+            {
+              title: 'Quality and Excellence',
+              description:
+                'Commitment to the highest standards of quality in education, scientific research, and community service.',
+            },
+            {
+              title: 'Creativity and Innovation',
+              description:
+                'Encouraging creative thinking and innovation in all academic fields.',
+            },
+            {
+              title: 'Belonging and Responsibility',
+              description:
+                'Promoting a sense of belonging to the faculty and the nation and assuming social responsibility.',
+            },
+            {
+              title: 'Teamwork',
+              description:
+                'Enhancing cooperation and teamwork among all faculty members.',
+            },
+            {
+              title: 'Transparency and Integrity',
+              description:
+                'Commitment to transparency and integrity in all dealings.',
+            },
+          ],
+        },
+        leadership: {
+          title: 'Faculty Leadership',
+          members: [
+            {
+              name: 'Prof. Dr. Noha Mahmoud Abdel Rahman',
+              title: 'Dean of the Faculty',
+            },
+            {
+              name: 'Prof. Dr. Mohamed Abdel Fattah',
+              title: 'Vice Dean for Education and Student Affairs',
+            },
+            {
+              name: 'Prof. Dr. Fatma Abdel Aziz',
+              title: 'Vice Dean for Graduate Studies and Research',
+            },
+            {
+              name: 'Prof. Dr. Ahmed Abdallah',
+              title:
+                'Vice Dean for Community Service and Environmental Development',
+            },
+          ],
+        },
+        organizationalStructure: {},
+        organizationalStructure_content:
+          'The following diagram illustrates the organizational structure of the faculty and the distribution of administrative and academic responsibilities among the dean, vice deans, department heads, and various units.',
+        organizationalStructure_title: 'Organizational Structure',
+        strategicPlan: {
+          title: 'Strategic Plan',
+          content:
+            'Through its strategic plan, the faculty aims to develop academic programs, enhance scientific research, serve the community, and achieve institutional excellence at the local and regional levels.',
+        },
+        strategicplan: 'Strategic Plan',
+        strategicplan_content:
+          'Through its strategic plan, the faculty aims to develop academic programs, enhance scientific research, serve the community, and achieve institutional excellence at the local and regional levels.',
+        contact: {
+          title: 'Contact Us',
+          address:
+            '14 Mohamed Amin Shaheib St. - Mostafa Kamel, Alexandria, Egypt',
+          phone: '03 5454313',
+          fax: '03 5442776',
+          email: 'spedu@alexu.edu.eg',
+          website: 'https://edusp.alexu.edu.eg',
+          socialMedia: [
+            {
+              platform: 'Facebook',
+              url: 'https://www.facebook.com/AlexUSpecificEdu',
+              icon: 'facebook',
+            },
+            {
+              platform: 'Twitter',
+              url: 'https://twitter.com/AlexUSpecificEdu',
+              icon: 'twitter',
+            },
+            {
+              platform: 'YouTube',
+              url: 'https://www.youtube.com/channel/AlexUSpecificEdu',
+              icon: 'youtube',
+            },
+          ],
+        },
+      },
   },
   tabs: {
     home: 'Home',
@@ -23,6 +122,7 @@ export const en = {
     about: 'About',
     programs: 'Programs',
     facilities: 'Facilities',
+    news:"News"
   },
   home: {
     welcome: 'Welcome to Faculty of Specific Education',
@@ -64,10 +164,10 @@ export const en = {
     directions: 'Directions',
     buildings: 'Buildings',
     facilities: 'Facilities',
- },
+  },
   calendar: {
     title: 'Academic Calendar',
-    academicYear: 'Academic Year',
+    academic: 'Academic Year',
     semester: 'Semester',
     today: 'Today',
     events: 'Events',
@@ -80,83 +180,33 @@ export const en = {
     latest: 'Latest News',
     categories: 'Categories',
     academic: 'Academic',
-    events: 'Events',
+    event: 'Events',
     research: 'Research',
     student: 'Student',
     readMore: 'Read More',
     shareNews: 'Share News',
   },
   about: {
-  strategicPlan_content:"",
+    title: 'about Faculty',
+    history_title: 'Historical Overview',
+    history_content: `The Faculty of Specific Education – Alexandria University was established in 1988 as part of Egypt\'s educational development plan. The faculty aims to prepare specialized teachers in Home Economics, Art Education, Music Education, and Educational Technology.\n\nThe faculty was established to meet the need for professionally qualified teachers in these fields, as schools lacked specialized teachers in arts, music, and home economics.\n\nThe faculty has applied the two-semester system since 1995/1996 according to Ministerial Decree No. 1556, and strives for quality and excellence in education, scientific research, and community service.`,
+    mission_title: 'Mission',
+    mission_content: 'To prepare highly qualified teachers, capable of competing in the local and regional labor market, and contributing to community development through advanced academic, research, and service programs.',
+    vision_title: 'Vision',
+    vision_content: 'Leadership and excellence in the fields of specific education locally and regionally through high-quality educational, research, and service programs.',
+
+    strategicPlan_content: '',
     dean: {
-      title: 'Dean\'s Message',
+      title: "Dean's Message",
       name: 'Prof. Dr. Noha Mahmoud Abdel Rahman',
       message: 'The Faculty of Specific Education strives for leadership in preparing highly qualified teachers, contributing to community development through advanced academic and research programs. We welcome all students and wish them success.',
     },
-    history: {
-      title: 'Historical Overview',
-      content: `The Faculty of Specific Education – Alexandria University was established in 1988 as part of Egypt\'s educational development plan. The faculty aims to prepare specialized teachers in Home Economics, Art Education, Music Education, and Educational Technology.\n\nThe faculty was established to meet the need for professionally qualified teachers in these fields, as schools lacked specialized teachers in arts, music, and home economics.\n\nThe faculty has applied the two-semester system since 1995/1996 according to Ministerial Decree No. 1556, and strives for quality and excellence in education, scientific research, and community service.`,
-    },
-    mission: {
-      title: 'Mission',
-      content: 'To prepare highly qualified teachers, capable of competing in the local and regional labor market, and contributing to community development through advanced academic, research, and service programs.'
-    },
-    vision: {
-      title: 'Vision',
-      content: 'Leadership and excellence in the fields of specific education locally and regionally through high-quality educational, research, and service programs.'
-    },
-    goals_title: 'Goals',
-    goals_items: [
-      'Graduate professionally and technically qualified teachers.',
-      'Develop academic programs to meet labor market requirements.',
-      'Encourage scientific research in the fields of specific education.',
-      'Serve the community and develop the environment.',
-      'Promote ethical values and national belonging among students.'
-    ],
-    values: {
-      title: 'Values',
-      items: [
-        { title: 'Quality and Excellence', description: 'Commitment to the highest standards of quality in education, scientific research, and community service.' },
-        { title: 'Creativity and Innovation', description: 'Encouraging creative thinking and innovation in all academic fields.' },
-        { title: 'Belonging and Responsibility', description: 'Promoting a sense of belonging to the faculty and the nation and assuming social responsibility.' },
-        { title: 'Teamwork', description: 'Enhancing cooperation and teamwork among all faculty members.' },
-        { title: 'Transparency and Integrity', description: 'Commitment to transparency and integrity in all dealings.' },
-      ],
-    },
-    leadership: {
-      title: 'Faculty Leadership',
-      members: [
-        { name: 'Prof. Dr. Noha Mahmoud Abdel Rahman', title: 'Dean of the Faculty' },
-        { name: 'Prof. Dr. Mohamed Abdel Fattah', title: 'Vice Dean for Education and Student Affairs' },
-        { name: 'Prof. Dr. Fatma Abdel Aziz', title: 'Vice Dean for Graduate Studies and Research' },
-        { name: 'Prof. Dr. Ahmed Abdallah', title: 'Vice Dean for Community Service and Environmental Development' },
-      ],
-    },
-    organizationalStructure: {
-      title: 'Organizational Structure',
-      content: 'The following diagram illustrates the organizational structure of the faculty and the distribution of administrative and academic responsibilities among the dean, vice deans, department heads, and various units.',
-    },
-    strategicPlan: {
-      title: 'Strategic Plan',
-      content: 'Through its strategic plan, the faculty aims to develop academic programs, enhance scientific research, serve the community, and achieve institutional excellence at the local and regional levels.',
-    },
-    strategicplan: 'Strategic Plan',
-    strategicplan_content: 'Through its strategic plan, the faculty aims to develop academic programs, enhance scientific research, serve the community, and achieve institutional excellence at the local and regional levels.',
-    contact: {
-      title: 'Contact Us',
-      address: '14 Mohamed Amin Shaheib St. - Mostafa Kamel, Alexandria, Egypt',
-      phone: '03 5454313',
-      fax: '03 5442776',
-      email: 'spedu@alexu.edu.eg',
-      website: 'https://edusp.alexu.edu.eg',
-      socialMedia: [
-        { platform: 'Facebook', url: 'https://www.facebook.com/AlexUSpecificEdu', icon: 'facebook' },
-        { platform: 'Twitter', url: 'https://twitter.com/AlexUSpecificEdu', icon: 'twitter' },
-        { platform: 'YouTube', url: 'https://www.youtube.com/channel/AlexUSpecificEdu', icon: 'youtube' },
-      ],
-    },
-  },
-  settings: 'Settings',
-  notifications: 'Notifications',
-  change_language: 'Change Language',
-};
+    history: {},
+    mission: {},
+    vision: {},
+
+    settings: 'Settings',
+    notifications: 'Notifications',
+    change_language: 'Change Language',
+  }
+}

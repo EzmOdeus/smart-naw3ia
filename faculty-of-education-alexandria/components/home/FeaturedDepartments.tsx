@@ -29,11 +29,9 @@ export function FeaturedDepartments({ departments }: FeaturedDepartmentsProps) {
       onPress={() => handlePressDepartment(item.id)}
     >
       <Image
-        source={{
-          uri: item.image
-            ? item.image
-            : require('./../../assets/images/light-yagami-ryuk-misa-amane-death-note-l-c4f2845291fb78e64513dc99de8f2a68.png'),
-        }}
+        source={
+          item.image ? item.image : require('../../assets/images/download.jpg')
+        }
         style={styles.departmentImage}
       />
       <View style={styles.departmentInfo}>
@@ -79,6 +77,7 @@ export function FeaturedDepartments({ departments }: FeaturedDepartmentsProps) {
 const styles = StyleSheet.create({
   container: {
     marginVertical: Layout.spacing.l,
+    
   },
   header: {
     flexDirection: 'row',
@@ -90,6 +89,7 @@ const styles = StyleSheet.create({
   listContent: {
     paddingHorizontal: Layout.spacing.m,
     paddingBottom: Layout.spacing.s,
+  
   },
   departmentCard: {
     width: 280,
@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
   departmentImage: {
     width: '100%',
     height: 160,
-    resizeMode: 'cover',
+    resizeMode: 'contain',
   },
   departmentInfo: {
     padding: Layout.spacing.m,

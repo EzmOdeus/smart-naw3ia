@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
-import { View, StyleSheet, FlatList, Image } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { router } from 'expo-router';
-import { Colors } from '@/constants/Colors';
-import { Layout } from '@/constants/Layout';
+import { Card } from '@/components/ui/Card';
 import { Header } from '@/components/ui/Header';
 import { SearchBar } from '@/components/ui/SearchBar';
-import { Card } from '@/components/ui/Card';
 import { Text } from '@/components/ui/Text';
-import { useTranslation } from '@/hooks/useTranslation';
+import { Colors } from '@/constants/Colors';
+import { Layout } from '@/constants/Layout';
 import { facultyMembers } from '@/data/faculty';
+import { useTranslation } from '@/hooks/useTranslation';
+import { router } from 'expo-router';
+import React, { useState } from 'react';
+import { FlatList, Image, StyleSheet, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const groupedFaculty = facultyMembers.reduce((groups, member) => {
   const title = member.title;
@@ -103,7 +103,10 @@ export default function FacultyScreen() {
             onPress={() => handleMemberPress(member.id)}
           >
             <View style={styles.facultyContent}>
-              <Image source={{ uri: member.image }} style={styles.facultyImage} />
+              <Image
+                source={typeof member.image === 'string' && member.image ? { uri: member.image } : require('../../assets/images/download.jpg')}
+                style={styles.facultyImage}
+              />
               <View style={styles.facultyInfo}>
                 <Text variant="subtitle" color="primary.500">{member.name}</Text>
                 <Text variant="caption" color="gray.600">{member.department}</Text>

@@ -1,17 +1,22 @@
-import * as Localization from 'expo-localization';
-import { I18n } from 'i18n-js';
+// i18n.js
+import i18n from 'i18next';
+import { initReactI18next } from 'react-i18next';
 import { ar } from '../translations/ar';
 import { en } from '../translations/en';
 
-// Create i18n instance
-const i18n = new I18n({
-  en,
-  ar,
-});
-
-// Set default locale to device locale
-i18n.locale = Localization.locale.split('-')[0];
-i18n.enableFallback = true;
-i18n.defaultLocale = 'ar';
+i18n
+  .use(initReactI18next)
+  .init({
+    compatibilityJSON: 'v4', // ضروري لـ Expo
+    lng: 'en', // اللغة الافتراضية
+    fallbackLng: 'en',
+    resources: {
+      en: { translation: en },
+      ar: { translation: ar },
+    },
+    interpolation: {
+      escapeValue: false, // react بالفعل يقوم بذلك
+    },
+  });
 
 export default i18n;

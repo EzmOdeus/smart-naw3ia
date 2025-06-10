@@ -1,15 +1,15 @@
-import React from 'react';
-import { View, StyleSheet, ScrollView, Image, TouchableOpacity, Linking } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { Colors } from '@/constants/Colors';
-import { Layout } from '@/constants/Layout';
+import { Card } from '@/components/ui/Card';
 import { Header } from '@/components/ui/Header';
 import { Text } from '@/components/ui/Text';
-import { Card } from '@/components/ui/Card';
-import { useTranslation } from '@/hooks/useTranslation';
+import { Colors } from '@/constants/Colors';
+import { Layout } from '@/constants/Layout';
 import { aboutInfo } from '@/data/about';
-import Entypo from '@expo/vector-icons/Entypo';
+import { useTranslation } from '@/hooks/useTranslation';
 import AntDesign from '@expo/vector-icons/AntDesign';
+import Entypo from '@expo/vector-icons/Entypo';
+import React from 'react';
+import { Image, Linking, ScrollView, StyleSheet, TouchableOpacity, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 export default function AboutScreen() {
   const { t } = useTranslation();
   
@@ -58,7 +58,11 @@ export default function AboutScreen() {
             {t('about.history_title')}
           </Text>
           <Image
-            source={{ uri: aboutInfo.history.image }}
+            source={
+              aboutInfo.history.image
+                ? aboutInfo.history.image
+                : require('../../assets/images/download.jpg')
+            }
             style={styles.historyImage}
           />
           <Text variant="body" color="gray.800" style={styles.historyText}>
@@ -90,7 +94,7 @@ export default function AboutScreen() {
 
         <View style={styles.section}>
           <Text variant="h3" color="primary.500" style={styles.sectionTitle}>
-            {aboutInfo.goals.title}
+            {t('common.about.goals_title')}
           </Text>
           {aboutInfo.goals.items.map((goal, idx) => (
             <Text
@@ -106,7 +110,7 @@ export default function AboutScreen() {
 
         <View style={styles.section}>
           <Text variant="h3" color="primary.500" style={styles.sectionTitle}>
-            {aboutInfo.values.title}
+            {t('common.about.values.title')}
           </Text>
           {aboutInfo.values.items.map((value, index) => (
             <Card key={index} style={styles.valueCard}>
@@ -132,7 +136,11 @@ export default function AboutScreen() {
             {aboutInfo.leadership.members.map((leader, index) => (
               <Card key={index} style={styles.leaderCard}>
                 <Image
-                  source={{ uri: leader.image }}
+                  source={
+                    leader.image
+                      ? leader.image
+                      : require('../../assets/images/download.jpg')
+                  }
                   style={styles.leaderImage}
                 />
                 <Text
@@ -148,19 +156,6 @@ export default function AboutScreen() {
               </Card>
             ))}
           </View>
-        </View>
-
-        <View style={styles.section}>
-          <Text variant="h3" color="primary.500" style={styles.sectionTitle}>
-            {t('about.organizationalStructure_title')}
-          </Text>
-          <Image
-            source={{ uri: aboutInfo.organizationalStructure.image }}
-            style={styles.historyImage}
-          />
-          <Text variant="body" color="gray.800" style={styles.historyText}>
-            {t('about.organizationalStructure_content')}
-          </Text>
         </View>
         <View style={styles.section}>
           <Text variant="h3" color="primary.500" style={styles.sectionTitle}>
@@ -227,7 +222,7 @@ export default function AboutScreen() {
             color="primary.500"
             style={styles.socialTitle}
           >
-            {t('about.socialMedia')}
+            {t('common.about.contact.title')}
           </Text>
           <View style={styles.socialContainer}>
             {aboutInfo.contact.socialMedia.map((social, index) => (
@@ -263,27 +258,46 @@ const styles = StyleSheet.create({
   },
   sectionTitle: {
     marginBottom: Layout.spacing.m,
+    fontWeight: '900',
+    color: Colors.primary[500],
+    fontSize: 24,
+    fontFamily: 'Inter-Bold',
+  
   },
   historyImage: {
-    width: '100%',
+width: '100%',
     height: 200,
     borderRadius: Layout.borderRadius.m,
     marginBottom: Layout.spacing.m,
   },
   historyText: {
     lineHeight: 24,
+    color: Colors.gray[800],
+    marginBottom: Layout.spacing.m,
+    textAlign: 'justify',
+    fontSize: 20,
+    fontFamily: 'Inter-Regular',
+    fontWeight: '600',
   },
   missionCard: {
     backgroundColor: Colors.primary[50],
+    
   },
   visionCard: {
     backgroundColor: Colors.secondary[50],
+    
   },
   valueCard: {
     marginBottom: Layout.spacing.m,
+    
   },
   valueTitle: {
     marginBottom: Layout.spacing.s,
+    fontWeight: '600',
+    color: Colors.primary[500],
+    fontSize: 18,
+    fontFamily: 'Inter-SemiBold',
+
   },
   leadershipGrid: {
     flexDirection: 'row',
