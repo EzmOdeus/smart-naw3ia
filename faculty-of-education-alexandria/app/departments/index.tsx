@@ -30,11 +30,9 @@ export default function DepartmentsScreen() {
       onPress={() => handleDepartmentPress(item.id)}
     >
       <Image
-        source={{
-          uri: item.image
-            ? item.image
-            : require('./../../assets/images/light-yagami-ryuk-misa-amane-death-note-l-c4f2845291fb78e64513dc99de8f2a68.png'),
-        }}
+        source={item.image
+          ? item.image
+            : require('./../../assets/images/light-yagami-ryuk-misa-amane-death-note-l-c4f2845291fb78e64513dc99de8f2a68.png')}
         style={styles.departmentImage}
       />
       <View style={styles.departmentInfo}>

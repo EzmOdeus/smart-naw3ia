@@ -8,7 +8,7 @@ import { facultyMembers } from '@/data/faculty';
 import { useTranslation } from '@/hooks/useTranslation';
 import { router } from 'expo-router';
 import React, { useState } from 'react';
-import { FlatList, Image, StyleSheet, View } from 'react-native';
+import { FlatList,  StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 const groupedFaculty = facultyMembers.reduce((groups, member) => {
@@ -44,7 +44,7 @@ export default function FacultyScreen() {
       <View style={styles.facultyContent}>
         <View style={styles.facultyInfo}>
           <Text variant="subtitle" color="primary.500">
-            {item.name}0
+            {item.name}
           </Text>
           <Text variant="caption" color="gray.600">
             {item.title}

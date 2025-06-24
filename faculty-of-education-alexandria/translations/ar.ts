@@ -158,7 +158,7 @@ export const ar = {
     staff: 'الهيئة الإدارية',
   },
   map: {
-    title: 'خريطة الحرم الجامعي',
+    title: ' الحرم الجامعي',
     search: 'البحث عن مكان',
     directions: 'الاتجاهات',
     buildings: 'المباني',

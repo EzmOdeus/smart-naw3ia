@@ -13,6 +13,8 @@ import { mapMarkers, MapMarker } from '@/data/mapMarkers';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import Feather from '@expo/vector-icons/Feather';
 
+import { ErrorScreen } from './ui/ErrorScreen';
+
 const { width, height } = Dimensions.get('window');
 const ASPECT_RATIO = width / height;
 const LATITUDE_DELTA = 0.005;
@@ -24,6 +26,7 @@ export default function MapScreen() {
   const [selectedMarker, setSelectedMarker] = useState<MapMarker | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [activeFilter, setActiveFilter] = useState<string | null>(null);
+  const [mapError, setMapError] = useState<string | null>(null);
   
   const initialRegion = {
     latitude: 31.208845,
@@ -66,6 +69,10 @@ export default function MapScreen() {
       default: return Colors.gray[500];
     }
   };
+
+  if (mapError) {
+    return <ErrorScreen message={mapError} onRetry={() => setMapError(null)} />;
+  }
 
   return (
     <SafeAreaView style={styles.container} edges={['right', 'left', 'bottom']}>
@@ -160,6 +167,14 @@ export default function MapScreen() {
           showsCompass
           showsScale
           showsBuildings
+          
+          // onMapReady={(e:any) => {
+          //   setMapError(
+          //     typeof e?.nativeEvent?.error === 'string'
+          //       ? e.nativeEvent.error
+          //       : 'حدث خطأ أثناء تحميل الخريطة. تأكد من اتصال الإنترنت وصحة Google Maps API Key.'
+          //   );
+          // }}
         >
           {filteredMarkers.map((marker: MapMarker) => (
             <Marker

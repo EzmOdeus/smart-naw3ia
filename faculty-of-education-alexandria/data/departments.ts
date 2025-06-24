@@ -1118,7 +1118,7 @@ export const departments: Department[] = [
     name: 'التربية الموسيقية',
     description:
       'يهدف القسم إلى إعداد معلمين متخصصين في التربية الموسيقية وتنمية المهارات الموسيقية لدى الطلاب.',
-    image: require('./../assets/images/download.jpg'),
+    image: require('./../assets/images/0download.jpg'),
     head: {
       id: 'ahmed-samir',
       name: 'ا.د. منال فراج',

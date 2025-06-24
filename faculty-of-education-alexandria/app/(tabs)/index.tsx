@@ -3,7 +3,6 @@ import { Hero } from '@/components/home/Hero';
 import { LatestNews } from '@/components/home/LatestNews';
 import { QuickLinks } from '@/components/home/QuickLinks';
 import { Header } from '@/components/ui/Header';
-import { LanguageSwitch } from '@/components/ui/LanguageSwitch';
 import { SearchBar } from '@/components/ui/SearchBar';
 import { Text } from '@/components/ui/Text';
 import { Colors } from '@/constants/Colors';
